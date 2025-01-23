@@ -1,0 +1,971 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Mincho", serif;
+}
+
+.index{
+  background-image: url("images/background.jpg"); /* 背景画像を指定 */
+  background-size: cover; /* 画面全体に拡大 */
+  background-position: center; /* 中央寄せ */
+  background-repeat: no-repeat; /* 繰り返しなし */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.cloud-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+
+
+
+.cloud {
+  width: 1900px; /* 雲の幅 */
+  height: 1900px; /* 雲の高さ */
+  background-size: contain; /* 画像サイズを要素に合わせる */
+  background-repeat: no-repeat; /* 繰り返し防止 */
+  position: absolute;
+  top: -10%; /* 縦方向の配置 */
+  transform: translateY(-50%); /* 縦方向中央揃え */
+}
+
+
+
+
+.cloud-left {
+  background-image: url("images/cloud-left.png"); /* 左の雲の画像パス */
+  animation: cloud-move-left 6s linear infinite;
+}
+
+
+.cloud-right {
+  background-image: url("images/cloud-right.png"); /* 右の雲の画像パス */
+  animation: cloud-move-right 6s linear infinite;
+  left: 10%; /* 右の雲の水平方向の位置を調整 */
+}
+
+
+
+
+@keyframes cloud-move-left {
+  from {
+    transform: translate(-50%, -50%); /* スタート地点を中央に */
+  }
+  to {
+    transform: translate(-50%, -50%) translateX(-150vw); /* 左に移動 */
+  }
+}
+
+
+
+
+@keyframes cloud-move-right {
+  from {
+    transform: translate(-50%, -50%); /* スタート地点を中央に */
+  }
+  to {
+    transform: translate(-50%, -50%) translateX(150vw); /* 右に移動 */
+  }
+}
+
+
+
+
+.cloud-left {
+  animation: cloud-move-left 6s forwards;
+}
+
+
+
+.cloud-right {
+  animation: cloud-move-right 6s forwards;
+}
+
+.content {
+  z-index: 20;
+  text-align: center;
+}
+
+.monologue p {
+  font-size: 2rem;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#click-prompt {
+  display: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+/* ベーススタイル */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Serif JP", serif;
+  background-color: #c5b59d; /* 抹茶色 */
+  color: #fff;
+  text-align: center;
+}
+
+
+/* タイトル */
+header {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+}
+header h1 {
+  font-size: 2.5rem;
+  margin: 10px 0;
+}
+.subtext {
+  font-size: 1.2rem;
+  margin: 0;
+  opacity: 0;
+  animation: fade-in 2s forwards;
+}
+
+
+/* 背景画像 */
+.path-selection .background {
+  background-image: url('images/path-selection-background.png'); /* Path Selection専用の背景画像 */
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+
+/* 道選択エリア */
+.arrow-container {
+  display: flex;
+  justify-content: center; /* 矢印を中央に配置 */
+  gap: 200px; /* 矢印の間隔 */
+  position: absolute;
+  top: 50%; /* 縦中央に配置 */
+  left: 50%; /* 横中央に配置 */
+  transform: translate(-50%, -50%); /* 中央に合わせる */
+}
+
+
+.arrow {
+  font-size: 50px; /* 矢印の大きさ */
+  cursor: pointer; /* クリック可能に */
+  transition: transform 0.3s ease; /* ホバー時に拡大 */
+}
+
+
+.arrow:hover {
+  transform: scale(1.2); /* ホバーで少し拡大 */
+}
+
+
+/* メニュー */
+.menu {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center; /* 横並び */
+  gap: 20px; /* 項目間の間隔 */
+}
+
+
+.menu-item {
+  background-color: #3e3a34;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: #fff;
+  text-align: center;
+}
+
+
+.menu-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #fff;
+}
+
+
+/* アニメーション */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* 共通の背景画像（動画置き場） */
+.background {
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* 宮島ページのスタイル */
+.miyajima .background {
+  background-image: url('miyajima-background.jpg'); /* 宮島用の背景画像 */
+}
+
+.miyajima .scroll-list {
+  background-color: #a8d08d; /* 緑色 */
+}
+
+/* 山ページのスタイル */
+.mountain .background {
+  background-image: url('mountain-background.jpg'); /* 山用の背景画像 */
+}
+
+.mountain .scroll-list {
+  background-color: #cfe2f3; /* 青色 */
+}
+
+/* 呉ページのスタイル */
+.kure .background {
+  background-image: url('kure-background.jpg'); /* 呉用の背景画像 */
+}
+
+.kure .scroll-list {
+  background-color: #fce5cd; /* 黄色 */
+}
+
+/* 巻物風のスタイル */
+.scroll-list {
+  background: url('scroll-pattern.png') no-repeat;
+  background-size: cover;
+  padding: 50px;
+  border-radius: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+/* リスト項目のスタイル */
+.scroll-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.8); /* 半透明の背景 */
+  border-radius: 8px;
+}
+
+.scroll-item h2 {
+  font-size: 24px;
+}
+
+.scroll-item iframe {
+  max-width: 100%;
+  height: 315px;
+}
+
+/* 戻るボタン（明朝体、デザイン改善） */
+.back-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 10px 20px;
+  font-family: 'Times New Roman', serif; /* 明朝体 */
+  font-size: 16px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.back-btn:hover {
+  background-color: #444;
+  transform: scale(1.05); /* ホバー時に少し拡大 */
+}
+
+/* フェードアウト用のクラス */
+.fade-out {
+  animation: fade-out 1s forwards; /* 1秒でフェードアウト */
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+    background-color: transparent;
+  }
+  to {
+    opacity: 0;
+    background-color: #fff; /* 白い背景に変化 */
+  }
+}
+
+/* メニュー（共通用） */
+.menu {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center; /* 横並び */
+  gap: 20px; /* 項目間の間隔 */
+}
+
+.menu-item {
+  background-color: #3e3a34;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: #c76161;
+  text-align: center;
+  font-size: 18px;
+}
+
+.menu-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #fff;
+}
+
+/* アニメーション */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 戻るボタン（キャラクター） */
+.back-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background-color: #444;
+}
+
+/* ページの全体に対してスタイルを適用 */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* 上に寄せる */
+  align-items: center; /* 横方向に中央に */
+  height: 100vh; /* ビューポート全体の高さ */
+  margin: 0; /* ページの余白をリセット */
+}
+
+.page-title {
+  font-size: 36px; /* フォントサイズ */
+  font-weight: bold; /* 太字 */
+  margin-top: 20px; /* 上部の余白 */
+}
+
+/* キャラクターリスト */
+.character-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px;
+}
+
+.character-card {
+  width: 200px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.character-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.character-card:hover {
+  transform: scale(1.1);
+}
+
+.character-card h3 {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* メニュー */
+.menu {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center; /* 横並び */
+  gap: 20px; /* 項目間の間隔 */
+}
+
+.menu-item {
+  background-color: #3e3a34;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: #fff;
+  text-align: center;
+}
+
+.menu-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #fff;
+}
+
+/* 全体のレイアウト(イベント) */
+body {
+  font-family: 'serif', 'Mincho', serif;  /* 明朝体 */
+  margin: 0;
+  padding: 0;
+  background-color: #fff;  /* 他ページと同じ背景色 */
+  color: #333;  /* 文字色も共通の暗い色に */
+}
+
+
+/* 戻るボタン */
+.back-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+
+.back-btn:hover {
+  background-color: #444;
+}
+
+
+/* ページタイトル */
+.page-title {
+  text-align: center;
+  font-size: 36px;
+  margin-top: 50px;
+  font-family: 'serif', 'Mincho', serif;  /* 明朝体 */
+}
+
+
+/* イベント情報セクション */
+.event-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+.event-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+
+.event-card:hover {
+  transform: scale(1.05);
+}
+
+
+.event-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+
+.event-card h2 {
+  font-size: 24px;
+  margin-top: 15px;
+  font-family: 'serif', 'Mincho', serif;  /* 明朝体 */
+}
+
+
+.event-card p {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #555;
+  font-family: 'serif', 'Mincho', serif;  /* 明朝体 */
+}
+
+
+.event-link {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 18px;
+  color: #3498db;
+  text-decoration: none;
+}
+
+
+.event-link:hover {
+  text-decoration: underline;
+}
+
+
+/* メニュー */
+.menu {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+
+.menu-item {
+  background-color: #3e3a34;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+.menu-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #fff;
+}
+
+
+/* 戻るボタン（特殊） */
+.back-btn { 
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+
+.back-btn:hover {
+  background-color: #444;
+}
+
+
+/* メニュー */
+.menu {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center; /* 横並び */
+  gap: 20px; /* 項目間の間隔 */
+}
+
+
+.menu-item {
+  background-color: #3e3a34;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: #fff;
+  text-align: center;
+}
+
+
+.menu-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #fff;
+}
+
+
+/* ページタイトル */
+.page-title {
+  font-size: 36px;
+  text-align: center;
+  font-family: 'Mincho', serif;
+  margin-top: 20px;
+}
+
+
+/* グッズリスト */
+.goods-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+  font-family: 'Mincho', serif;
+}
+
+
+.goods-item {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.goods-item:hover {
+  transform: scale(1.05);
+}
+
+
+.goods-image {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+
+.goods-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+
+.goods-description {
+  font-size: 14px;
+  color: #555;
+}
+
+
+.details-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+
+.details-btn:hover {
+  background-color: #2980b9;
+}
+
+
+
+/* 戻るボタン（information） */
+.back-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+
+.back-btn:hover {
+  background-color: #444;
+}
+
+
+/* メニュー */
+.menu {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+
+.menu-item {
+  background-color: #3e3a34;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: #fff;
+  text-align: center;
+}
+
+
+.menu-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #fff;
+}
+
+
+.menu-item a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+}
+
+
+.menu-item a:hover {
+  color: #3498db;
+}
+
+
+/* INFORMATION ページの内容 */
+.information-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: "Mincho", serif;
+}
+
+
+.title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+
+.contact-info {
+  line-height: 1.6;
+}
+
+
+.contact-info a {
+  text-decoration: none;
+  color: #3498db;
+}
+
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+
+/* リストのスタイル */
+.contact-info p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+
+/* ページ全体のスタイル(ギャラリー)　*/
+body {
+  font-family: 'Mincho', serif; /* 明朝体 */
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+
+/* 戻るボタン */
+.back-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+
+.back-btn:hover {
+  background-color: #444;
+}
+
+
+/* ギャラリーページのタイトル */
+.gallery-title {
+  text-align: center;
+  margin-top: 40px;
+}
+
+
+.gallery-title h1 {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+
+/* ギャラリー画像の配置 */
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+}
+
+
+.gallery-item img {
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+
+.gallery-item img:hover {
+  transform: scale(1.05);
+}
+
+
+/* モーダルウィンドウ */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+
+.modal-content {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+
+/* メニュー */
+.menu {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+
+.menu-item {
+  background-color: #3e3a34;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: #fff;
+  text-align: center;
+}
+
+
+.menu-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #fff;
+}
